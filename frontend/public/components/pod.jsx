@@ -158,10 +158,10 @@ const Details = ({obj: pod}) => {
       <h1 className="co-section-title">Pod Overview</h1>
       <div className="row">
         <div className="col-md-4">
-          <Line title="RAM" query={`pod_name:container_memory_usage_bytes:sum{pod_name='${pod.metadata.name}'}`} />
+          <Line title="RAM" query={`pod_name:container_memory_usage_bytes:sum{pod_name='${pod.metadata.name}'}`} limit={limits.memory} />
         </div>
         <div className="col-md-4">
-          <Line title="CPU Shares" query={`pod_name:container_cpu_usage:sum{pod_name='${pod.metadata.name}'} * 1000`} />
+          <Line title="CPU Shares" query={`pod_name:container_cpu_usage:sum{pod_name='${pod.metadata.name}'} * 1000`} limit={limits.cpu} />
         </div>
         <div className="col-md-4">
           <Line title="Filesystem (bytes)" query={`pod_name:container_fs_usage_bytes:sum{pod_name='${pod.metadata.name}'}`} />

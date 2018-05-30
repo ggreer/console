@@ -51,6 +51,20 @@ export class Line extends BaseGraph {
       },
       shapes: [],
     };
+
+    if (_.isFinite(props.limit)) {
+      this.layout.shapes.push({
+        type: 'line',
+        xref: 'paper',
+        yref: 'y',
+        x0: 0,
+        x1: 1,
+        y0: props.limit,
+        y1: props.limit,
+        text: `Limit ${props.limit}`,
+      });
+    }
+
     this.options = {
       displaylogo: false,
     };
